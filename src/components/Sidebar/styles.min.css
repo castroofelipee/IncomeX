@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%; 
+  background-color: #121212; /* Fundo escuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+.layout {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1f1f1f; /* Cor de fundo do sidebar */
+  color: #e0e0e0; /* Cor do texto */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #333; /* Divisória escura */
+  padding-bottom: 15px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 10px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .logo {
+  width: 56px;
+  transition: transform 0.3s ease;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px;
+  align-items: center;
+  margin: 15px 0; /* Melhor espaçamento vertical */
+}
+
+
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 10px;
+  color: #e0e0e0;
+}
+
+.menu-btn:hover {
+  /* Remova a cor azul ou defina a cor desejada */
+  background-color: initial;
+  color: #000;
+}
+
+nav {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li h3 {
+  font-size: 16px;
+  color: #343a40;
+  margin-bottom: 5px;
+  display: none;
+}
+
+nav ul li ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li ul li {
+  margin-bottom: 5px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #e0e0e0; /* Cor do texto dos links */
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #333; /* Fundo ao passar o mouse */
+  color: #bb86fc; /* Texto com destaque ao passar o mouse */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ao passar o mouse */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+nav ul li a.active svg {
+  color: #007bff;
+}
+
+.data .MuiSvgIcon-root {
+  color: #007bff;
+  font-size: 40px;
+}
+
+.sidebar.expanded nav ul li h3 {
+  display: block;
+}
+
+.sidebar.expanded nav ul li a span {
+  display: inline;
+}
+
+.sidebar.collapsed nav ul li a span {
+  display: none;
+}
+
+nav ul li a svg {
+  font-size: 24px;
+  min-width: 24px;
+}
+
+.sidebar.collapsed nav ul li {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar.collapsed nav ul li a {
+  justify-content: center;
+}
+
+nav ul li a.active {
+  border-left: 4px solid #bb86fc; /* Borda de destaque */
+  background-color: #333;
+  color: #bb86fc;
+}
+
+nav ul li a.active svg {
+  color: #007bff;
+}
+
+.data .MuiSvgIcon-root {
+  color: #007bff;
+  font-size: 40px;
+}
+
+.logout-section {
+  margin-top: auto;
+  padding: 20px;
+}
+
+.logout-section a {
+  text-decoration: none;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-section a:hover {
+  background-color: #cf6679; 
+  color: #fff;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0; /* Sidebar is hidden */
+    background-color: rgba(248, 249, 250, 0.041); /* Transparent background */
+    overflow: hidden;
+    color: white;
+  }
+  
+  .sidebar.collapsed {
+    width: 80px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar.expanded {
+    width: 250px; /* Show full width when expanded */
+  }
+}
